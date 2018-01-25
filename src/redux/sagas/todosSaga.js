@@ -8,12 +8,10 @@ import {
   LOAD_TODOS,
 } from '../constants/constants.js'
 
-export function* fetchTodosList() {
-  // api url
-  const requestURL = `https://jsonplaceholder.typicode.com/todos`
+export function* fetchTodosList(requestParams) {
   try {
     // Call request helper
-    const todos = yield call(request, requestURL)
+    const todos = yield call(request, requestParams.url, requestParams.options)
     yield put(todosLoaded(todos))
 
   } catch (err) {

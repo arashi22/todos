@@ -3,9 +3,13 @@ import {
   LOAD_TODOS_SUCCESS,
   LOAD_TODOS_ERROR,
 } from '../constants/constants.js';
+import { FETCH } from '../../middleware/middleware';
 
 export const loadTodos = () => ({
   type: LOAD_TODOS,
+  [FETCH]: {
+    url: '/todos',
+  },
 })
 
 export const todosLoaded = todos => ({

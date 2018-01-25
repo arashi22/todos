@@ -4,6 +4,7 @@ import createSagaMiddleware from 'redux-saga'
 import createHistory from 'history/createBrowserHistory'
 import rootReducer from './redux/reducer/rootReducer'
 import { rootSaga } from './redux/sagas/rootSaga';
+import configMiddleware from './middleware/middleware';
 
 export const history = createHistory()
 
@@ -12,6 +13,7 @@ const enhancers = []
 const sagaMiddleware = createSagaMiddleware()
 
 const middleware = [
+  configMiddleware,
   sagaMiddleware,
   routerMiddleware(history),
 ]
